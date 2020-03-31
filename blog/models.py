@@ -6,3 +6,12 @@ class Blog(models.Model):
     image = models.ImageField(upload_to='images/')
     body = models.TextField()
 
+    def __str__(self):
+        return self.title
+    
+    def summery(self):
+        if len(self.body) > 150:
+            return self.body[:150] + "...."
+        else:
+            return self.body
+
